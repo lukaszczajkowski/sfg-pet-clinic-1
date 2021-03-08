@@ -6,6 +6,7 @@ import guru.springframework.sfgpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -18,10 +19,11 @@ public class VisitSDJpaService implements VisitService {
         this.visitRepository = visitRepository;
     }
 
-
     @Override
     public Set<Visit> findAll() {
-        return (Set<Visit>) visitRepository.findAll();
+        Set<Visit> visitSet = new HashSet<>();
+        visitRepository.findAll().forEach(visitSet::add);
+        return visitSet;
     }
 
     @Override
