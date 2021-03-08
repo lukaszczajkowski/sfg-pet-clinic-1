@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Vets</title>
+</head>
+<body>
+    <h2 th:text="'List of Vets'">List of Vets...</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <th style="width: 150px">Id</th>
+            <th style="width: 150px">First Name</th>
+            <th style="width: 150px">Last Name</th>
+        </thead>
+        <tbody>
+        <tr th:each="vet : ${vets}">
+            <td th:text="${vet.id}">1</td>
+            <td th:text="${vet.firstName}">Anna</td>
+            <td th:text="${vet.lastName}">Em</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
