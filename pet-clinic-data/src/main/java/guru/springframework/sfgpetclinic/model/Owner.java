@@ -23,10 +23,13 @@ public class Owner extends Person{
                  String city,
                  String telephone) {
         super(id, firstName, lastName);
-        this.pets = pets;
         this.address = address;
         this.city = city;
         this.telephone = telephone;
+
+        if (pets != null) {
+            this.pets = pets;
+        }
     }
 
     public Owner(Set<Pet> pets, String address, String city, String telephone) {
